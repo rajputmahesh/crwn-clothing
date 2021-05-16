@@ -1,7 +1,7 @@
 import React from "react";
 import MenuItem from "../menu-item/menu-item.component";
 
-class Derectory extends React.Component {
+class Directory extends React.Component {
   constructor() {
     super();
 
@@ -11,7 +11,7 @@ class Derectory extends React.Component {
           title: "hats",
           imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
           id: 1,
-          linkUrl: "shop/hats",
+          linkUrl: "hats",
         },
         {
           title: "jackets",
@@ -30,7 +30,6 @@ class Derectory extends React.Component {
           imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
           size: "large",
           id: 4,
-          size:'large',
           linkUrl: "shop/womens",
         },
         {
@@ -38,7 +37,6 @@ class Derectory extends React.Component {
           imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
           size: "large",
           id: 5,
-          size:'large',
           linkUrl: "shop/mens",
         },
       ],
@@ -53,8 +51,8 @@ class Derectory extends React.Component {
           //     <MenuItem key={key} title={title} imageUrl={imageUrl}></MenuItem>
           // ))
 
-          this.state.sections.map((section) => (
-            <MenuItem section={section}></MenuItem>
+          this.state.sections.map(({id, ...otherSectionProps}) => (
+            <MenuItem key={id} {...otherSectionProps}></MenuItem>
           ))
         }
       </div>
@@ -62,4 +60,4 @@ class Derectory extends React.Component {
   }
 }
 
-export default Derectory;
+export default Directory;
